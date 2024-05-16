@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const coyInput = document.getElementById('coy');
     const mobileNumberInput = document.getElementById('mobileNumber');
     const successMessageContainer = document.getElementById('successMessageContainer');
-    const submitButton = documen.getElementById('submitButtonh');
+    const submitButton = document.getElementById('submitButton');
     const cancelButton = document.getElementById('cancelBtn');
 
 
@@ -55,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     submitButton.addEventListener('click', function (event) {
-        debugger
         event.preventDefault();
         successMessageContainer.classList.add('show');
         suggestionForm.reset();
@@ -65,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     cancelButton.addEventListener('click', function (event) {
-        debugger
+        
         event.preventDefault();
         cancel();
     });

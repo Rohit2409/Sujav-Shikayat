@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!validateUsername(username) || !validatePassword(password)) {
             return;
         }
-        window.location.href = "/main.html";
+        window.location.href = "./main.html";
     });
 });
 
