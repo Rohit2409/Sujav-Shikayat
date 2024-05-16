@@ -1,0 +1,88 @@
+body {
+  background-image: url('/assets/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.button-container button,
+.button-container a {
+  margin: 0 5px;
+}
+
+.container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: auto;
+
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 2px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+  width: 100%;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.select-container {
+  position: relative;
+}
+
+select {
+  width: 100%;
+  z-index: 1;
+}
+
+.form-group textarea {
+  height: 80px;
+  width: 100%;
+}
+
+.form-check-input {
+  margin-left: 0 !important;
+}
+
+.form-check-label {
+  margin-left: 1.5rem !important;
+}
+
+.success-message {
+  display: none;
+}
+
+.success-message.show {
+  display: block;
+}
+
+.displayRightTop{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 30% !important;
+}

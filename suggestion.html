@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Sujav / Shikayat</title>
+
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="suggestion.css">
+</head>
+
+<body>
+  <div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="row justify-content-center w-100">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title text-center">Submit Sujav / Shikayat</h2>
+            <form id="suggestionForm">
+              <div class="form-group">
+                <label for="suggestion"><b>Sujav / Shikayat</b></label>
+                <textarea id="suggestion" placeholder="Write your Sujav/Shikayat" class="form-control"
+                  required></textarea>
+              </div>
+              <h3 class="text-center">Personal Details</h3>
+              <div>
+                <div class="form-group">
+                  <label for="armyNo">Army No</label>
+                  <input type="text" placeholder="Enter Army No." id="armyNo" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="rank">Rank</label>
+                  <select id="rank" class="form-control">
+                    <option value="" disabled selected>Select Rank</option>
+                    <option value="Rfn">Rfn</option>
+                    <option value="LNk">L/Nk</option>
+                    <option value="Nk">Nk</option>
+                    <option value="Hav">Hav</option>
+                    <option value="NbSub">Nb Sub</option>
+                    <option value="Sub">Sub</option>
+                    <option value="Sub Maj">Sub Maj</option>
+                    <option value="Lt">Lt</option>
+                    <option value="Capt">Capt</option>
+                    <option value="Maj">Maj</option>
+                    <option value="Lt Col">Lt Col</option>
+                    <option value="Col">Col</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="userName">Name</label>
+                  <input type="text" placeholder="Enter Username" id="userName" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="coy">Company</label>
+                  <select id="coy" class="form-control">
+                    <option value="" disabled selected>Select Coy</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="HQ">HQ</option>
+                    <option value="SP">SP</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="mobileNumber">Mobile Number</label>
+                  <input type="text" placeholder="Enter Mobile Number" maxlength="10"  id="mobileNumber" class="form-control" pattern="^[0-9]{10}$" maxlength="10">
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="checkbox" id="isAnonymous" class="form-check-input" onclick="isAnonymousCheckbox()">
+                <label class="form-check-label" for="isAnonymous">Anonymous</label>
+              </div>
+              <div class="text-right button-container">
+                <button type="button" class="btn btn-primary" id="submitButtonh" onclick="submitButton()">Submit</button>
+                <a href="login.html" id="cancelBtn" class="btn btn-secondary ml-2">Cancel</a>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-3 success-message displayRightTop" id="successMessageContainer">
+    <div class="alert alert-success" role="alert">
+      Submitted successfully
+    </div>
+  </div>
+
+
+  <script src="suggestion.js"></script>
+</body>
+
+</html>
