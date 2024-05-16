@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const coyInput = document.getElementById('coy');
     const mobileNumberInput = document.getElementById('mobileNumber');
     const successMessageContainer = document.getElementById('successMessageContainer');
-    const submitButton = documen.getElementById('submitButtonh');
+    var ErrorMessageContainer = document.getElementById('ErrorMessageContainer');
+    const submitButton = document.getElementById('submitButton');
     const cancelButton = document.getElementById('cancelBtn');
 
 
@@ -27,45 +28,54 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    suggestionForm.addEventListener('submit', function (event) {
-        event.preventDefault();
+    // suggestionForm.addEventListener('submit', function (event) {
+    //     event.preventDefault();
 
-        const suggestion = document.getElementById('suggestion').value.trim();
-        const armyNo = armyNoInput.value.trim();
-        const rank = rankInput.value.trim();
-        const username = usernameInput.value.trim();
-        const coy = coyInput.value.trim();
-        const mobileNumber = mobileNumberInput.value.trim();
-        const isAnonymous = isAnonymousCheckbox.checked;
+    //     const suggestion = document.getElementById('suggestion').value.trim();
+    //     const armyNo = armyNoInput.value.trim();
+    //     const rank = rankInput.value.trim();
+    //     const username = usernameInput.value.trim();
+    //     const coy = coyInput.value.trim();
+    //     const mobileNumber = mobileNumberInput.value.trim();
+    //     const isAnonymous = isAnonymousCheckbox.checked;
 
-        console.log({
-            suggestion: suggestion,
-            armyNo: isAnonymous ? '' : armyNo,
-            rank: isAnonymous ? '' : rank,
-            username: isAnonymous ? '' : username,
-            coy: isAnonymous ? '' : coy,
-            mobileNumber: isAnonymous ? '' : mobileNumber,
-            isAnonymous: isAnonymous
-        });
+    //     console.log({
+    //         suggestion: suggestion,
+    //         armyNo: isAnonymous ? '' : armyNo,
+    //         rank: isAnonymous ? '' : rank,
+    //         username: isAnonymous ? '' : username,
+    //         coy: isAnonymous ? '' : coy,
+    //         mobileNumber: isAnonymous ? '' : mobileNumber,
+    //         isAnonymous: isAnonymous
+    //     });
 
 
-        setTimeout(function () {
-            suggestionForm.resetForm();
-        }, 2000);
-    });
+    //     setTimeout(function () {
+    //         suggestionForm.resetForm();
+    //     }, 2000);
+    // });
 
     submitButton.addEventListener('click', function (event) {
-        debugger
         event.preventDefault();
-        successMessageContainer.classList.add('show');
-        suggestionForm.reset();
-        setTimeout(() => {
-            successMessageContainer.classList.remove('show');
-        }, 500);
+        const armyNoInput = document.getElementById('armyNo');
+        const mobileNumberInput = document.getElementById('mobileNumber');
+        if (armyNoInput.value !== '' && mobileNumberInput.value !== '') {
+            successMessageContainer.classList.add('show');
+            suggestionForm.reset();
+            setTimeout(() => {
+                successMessageContainer.classList.remove('show');
+            }, 5000);
+        } else {
+            ErrorMessageContainer = document.getElementById('ErrorMessageContainer');
+            ErrorMessageContainer.classList.add('show');
+            setTimeout(() => {
+                ErrorMessageContainer.classList.remove('show');
+            }, 5000);
+        }
     });
 
     cancelButton.addEventListener('click', function (event) {
-        debugger
+
         event.preventDefault();
         cancel();
     });
@@ -77,13 +87,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+document.getElementById('mobileNumber').addEventListener('keypress', function (e) {
+    return isNumber(e);
+}, false);
 
-function submitButton() {
-    debugger
-    const successMessageContainer = document.getElementById('successMessageContainer');
-    successMessageContainer.classList.add('show');
-    suggestionForm.reset();
-    setTimeout(() => {
-        successMessageContainer.classList.remove('show');
-    }, 5000);
+function isNumber(e) {
+    var code = (e.which) ? e.which : e.keyCode;
+    if (code > 31 && (code < 48 || code > 57)) {
+        e.preventDefault();
+    }
 }

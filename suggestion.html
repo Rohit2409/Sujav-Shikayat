@@ -7,7 +7,8 @@
   <title>Submit Sujav / Shikayat</title>
 
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
   <link rel="stylesheet" href="suggestion.css">
 </head>
 
@@ -18,7 +19,7 @@
         <div class="card">
           <div class="card-body">
             <h2 class="card-title text-center">Submit Sujav / Shikayat</h2>
-            <form id="suggestionForm">
+            <form id="suggestionForm" class="needs-validation" novalidate>
               <div class="form-group">
                 <label for="suggestion"><b>Sujav / Shikayat</b></label>
                 <textarea id="suggestion" placeholder="Write your Sujav/Shikayat" class="form-control"
@@ -28,7 +29,8 @@
               <div>
                 <div class="form-group">
                   <label for="armyNo">Army No</label>
-                  <input type="text" placeholder="Enter Army No." id="armyNo" class="form-control">
+                  <input type="text" placeholder="Enter Army No." id="armyNo" class="form-control" required>
+                  <div  class="invalid-feedback">Army No Required</div>
                 </div>
                 <div class="form-group">
                   <label for="rank">Rank</label>
@@ -50,7 +52,7 @@
                 </div>
                 <div class="form-group">
                   <label for="userName">Name</label>
-                  <input type="text" placeholder="Enter Username" id="userName" class="form-control" required />
+                  <input type="text" placeholder="Enter Username" id="userName" class="form-control" >
                 </div>
                 <div class="form-group">
                   <label for="coy">Company</label>
@@ -66,7 +68,8 @@
                 </div>
                 <div class="form-group">
                   <label for="mobileNumber">Mobile Number</label>
-                  <input type="text" placeholder="Enter Mobile Number" maxlength="10"  id="mobileNumber" class="form-control" pattern="^[0-9]{10}$" maxlength="10">
+                  <input type="text" placeholder="Enter Mobile Number" id="mobileNumber" class="form-control"
+                    pattern="^[0-9]{10}$" maxlength="10" required>
                 </div>
               </div>
               <div class="form-group">
@@ -74,22 +77,28 @@
                 <label class="form-check-label" for="isAnonymous">Anonymous</label>
               </div>
               <div class="text-right button-container">
-                <button type="button" class="btn btn-primary" id="submitButtonh" onclick="submitButton()">Submit</button>
+                <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
                 <a href="login.html" id="cancelBtn" class="btn btn-secondary ml-2">Cancel</a>
               </div>
             </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="container mt-3 success-message displayRightTop" id="successMessageContainer">
-    <div class="alert alert-success" role="alert">
-      Submitted successfully
+    <div class="container mt-3 success-message displayRightTop" id="successMessageContainer">
+      <div class="alert alert-success" role="alert">
+        Details Submitted successfully
+      </div>
     </div>
-  </div>
+    <div class="container mt-3 success-message displayRightTop" id="ErrorMessageContainer">
+      <div class="alert alert-danger" role="alert">
+        Please fill all required fields
+      </div>
+    </div>
 
 
-  <script src="suggestion.js"></script>
+    <script src="suggestion.js"></script>
+
 </body>
 
 </html>
